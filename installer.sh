@@ -2,7 +2,7 @@
 
 BBQX0KBD_TYPE=${BBQX0KBD_TYPE:-BBQ20KBD_PMOD}
 BBQ20KBD_TRACKPAD_USE=${BBQ20KBD_TRACKPAD_USE:-BBQ20KBD_TRACKPAD_AS_KEYS}
-BBQX0KBD_INT=${BBQX0KBD_INT:-BBQX0KBD_NO_INT}
+BBQX0KBD_INT=${BBQX0KBD_INT:-BBQX0KBD_USE_INT}
 BBQX0KBD_INT_PIN=${BBQX0KBD_INT_PIN:-4}
 BBQX0KBD_POLL_PERIOD=${BBQX0KBD_POLL_PERIOD:-40}
 BBQX0KBD_ASSIGNED_I2C_ADDRESS=${BBQX0KBD_ASSIGNED_I2C_ADDRESS=BBQX0KBD_DEFAULT_I2C_ADDRESS}
@@ -16,16 +16,19 @@ usage="$(basename "$0") [-h] [--o n]
 				BBQ20KBD_PMOD (Default)
 --BBQ20KBD_TRACKPAD_USE : Use BBQ20KBD_PMOD's  trackpad either as a mouse, or as KEY_HOME.
 			Availabe Options:
-				BBQ20KBD_TRACKPAD_AS_MOUSE (Default)
-				BBQ20KBD_TRACKPAD_AS_KEYS
+				BBQ20KBD_TRACKPAD_AS_MOUSE
+				BBQ20KBD_TRACKPAD_AS_KEYS (Default)
 --BBQX0KBD_INT : Build a driver that uses the external Interrupt Pin, or build one without it, polling the Keyboard instead.
 			Available Options:
-				BBQX0KBD_USE_INT
-				BBQX0KBD_NO_INT (Default)
+				BBQX0KBD_USE_INT (Default
+				BBQX0KBD_NO_INT
 --BBQX0KBD_INT_PIN : Raspberry Pi BCM Pin Number for the Interrupt Pin. Default value is 4. Note that BCM Pin Numbers are different from Pi's header Pin Numbers.
 --BBQX0KBD_POLL_PERIOD : Polling Rate for the Keyboard in milliseconds. Value between 10 to 1000. Defualt is 40.
 --BBQX0KBD_ASSIGNED_I2C_ADDRESS : I2C Address if changed. Default Value is 0x1F.
 Examples:
+
+>./installer.sh
+This creates the kernel driver for Beepy by SQFMI x Beeper, with trackpad as KEY_UP, KEY_DOWN, KEY_LEFT, and KEY_RIGHT.
 
 >./installer.sh --BBQX0KBD_TYPE BBQ10KBD_FEATHERWING --BBQX0KBD_INT BBQX0KBD_NO_INT --BBQX0KBD_POLL_PERIOD 25
 This creates the kernel driver for Keyboard Featherwing. It does not use the Interrupt Pin, instead polls the keyboard every 25ms.
