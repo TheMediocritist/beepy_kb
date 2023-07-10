@@ -15,13 +15,13 @@
 #include "params_iface.h"
 #include "sysfs_iface.h"
 
-#if (BBQX0KBD_INT != BBQX0KBD_USE_INT)
-#error "Only supporting interrupts mode right now"
-#endif
+//if (BBQX0KBD_INT != BBQX0KBD_USE_INT)
+//error "Only supporting interrupts mode right now"
+//endif
 
-#if (BBQX0KBD_TYPE != BBQ20KBD_PMOD)
-#error "Only supporting BBQ20 keyboard right now"
-#endif
+//if (BBQX0KBD_TYPE != BBQ20KBD_PMOD)
+//error "Only supporting BBQ20 keyboard right now"
+//endif
 
 static int bbqX0kbd_probe(struct i2c_client* i2c_client, struct i2c_device_id const* i2c_id)
 {
