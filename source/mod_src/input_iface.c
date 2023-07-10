@@ -844,23 +844,23 @@ void input_workqueue_handler(struct work_struct *work_struct_ptr)
 		if (ctx->touchpad_always_keys) {
 
 			// Negative X: left arrow key
-			if (ctx->touch_rel_x < -4) {
+			if (ctx->touch_rel_x < -8) {
 				input_report_key(ctx->input_dev, KEY_LEFT, TRUE);
 				input_report_key(ctx->input_dev, KEY_LEFT, FALSE);
 
 			// Positive X: right arrow key
-			} else if (ctx->touch_rel_x > 4) {
+			} else if (ctx->touch_rel_x > 7) {
 				input_report_key(ctx->input_dev, KEY_RIGHT, TRUE);
 				input_report_key(ctx->input_dev, KEY_RIGHT, FALSE);
 			}
 
 			// Negative Y: up arrow key
-			if (ctx->touch_rel_y < -4) {
+			if (ctx->touch_rel_y < -8) {
 				input_report_key(ctx->input_dev, KEY_UP, TRUE);
 				input_report_key(ctx->input_dev, KEY_UP, FALSE);
 
 			// Positive Y: down arrow key
-			} else if (ctx->touch_rel_y > 4) {
+			} else if (ctx->touch_rel_y > 7) {
 				input_report_key(ctx->input_dev, KEY_DOWN, TRUE);
 				input_report_key(ctx->input_dev, KEY_DOWN, FALSE);
 			}
@@ -869,12 +869,12 @@ void input_workqueue_handler(struct work_struct *work_struct_ptr)
 		} else if (ctx->meta_touch_keys_mode) {
 
 			// Negative Y: up arrow key
-			if (ctx->touch_rel_y < -4) {
+			if (ctx->touch_rel_y < -8) {
 				input_report_key(ctx->input_dev, KEY_UP, TRUE);
 				input_report_key(ctx->input_dev, KEY_UP, FALSE);
 
 			// Positive Y: down arrow key
-			} else if (ctx->touch_rel_y > 4) {
+			} else if (ctx->touch_rel_y > 7) {
 				input_report_key(ctx->input_dev, KEY_DOWN, TRUE);
 				input_report_key(ctx->input_dev, KEY_DOWN, FALSE);
 			}
